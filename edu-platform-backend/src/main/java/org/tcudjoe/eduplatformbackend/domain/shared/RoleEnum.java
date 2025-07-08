@@ -1,10 +1,13 @@
 package org.tcudjoe.eduplatformbackend.domain.shared;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 
 
 import java.util.Set;
 
+@Getter
 public enum RoleEnum implements GrantedAuthority {
 	STUDENT(Set.of(
 			Permission.STUDENT_READ,
@@ -55,10 +58,6 @@ public enum RoleEnum implements GrantedAuthority {
 
 	RoleEnum(Set<Permission> permissions){
 		this.permissions = permissions;
-	}
-
-	public Set<Permission> getPermissions() {
-		return permissions;
 	}
 
 	@Override

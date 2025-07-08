@@ -1,5 +1,8 @@
 package org.tcudjoe.eduplatformbackend.domain.shared;
 
+import lombok.Getter;
+
+@Getter
 public enum Permission {
 	STUDENT_READ("student:read"),
 	STUDENT_WRITE("student:write"),

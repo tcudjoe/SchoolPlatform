@@ -10,9 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Getter
@@ -37,7 +35,15 @@ public class BaseUser implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return List.of();
+		Set<GrantedAuthority> authorities = new HashSet<>();
+
+		authorities.add(this.role);
+
+		role.getPermissions()
+				.forEach(permission -> authorities.add(permission::getPermission)
+				);
+
+		return authorities;
 	}
 
 	@Override
