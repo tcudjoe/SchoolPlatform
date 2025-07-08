@@ -1,7 +1,6 @@
 package org.tcudjoe.eduplatformbackend.domain.shared;
 
 import lombok.Getter;
-import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 
 
