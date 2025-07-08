@@ -5,7 +5,10 @@ import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.tcudjoe.eduplatformbackend.domain.course.Subject;
 import org.tcudjoe.eduplatformbackend.domain.shared.BaseEmployee;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -13,5 +16,5 @@ import org.tcudjoe.eduplatformbackend.domain.shared.BaseEmployee;
 @NoArgsConstructor
 @DiscriminatorValue("Teacher")
 public class Teacher extends BaseEmployee {
-
+	private List<Subject> subjects;
 }
