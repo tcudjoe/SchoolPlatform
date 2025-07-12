@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.tcudjoe.eduplatformbackend.domain.student.Student;
-import org.tcudjoe.eduplatformbackend.domain.teacher.Teacher;
+import org.tcudjoe.eduplatformbackend.domain.users.student.Student;
+import org.tcudjoe.eduplatformbackend.domain.users.teacher.Teacher;
 
 import java.util.List;
 import java.util.UUID;

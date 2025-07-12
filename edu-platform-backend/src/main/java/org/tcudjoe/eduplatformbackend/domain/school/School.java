@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
-import org.tcudjoe.eduplatformbackend.domain.shared.SubscriptionPlanEnum;
+import org.tcudjoe.eduplatformbackend.domain.shared.enums.SubscriptionPlanEnum;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

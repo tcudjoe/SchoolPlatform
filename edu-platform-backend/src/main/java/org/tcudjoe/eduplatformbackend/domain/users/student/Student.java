@@ -1,13 +1,15 @@
-package org.tcudjoe.eduplatformbackend.domain.student;
+package org.tcudjoe.eduplatformbackend.domain.users.student;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.tcudjoe.eduplatformbackend.domain.parent.Parent;
+import org.tcudjoe.eduplatformbackend.domain.school.School;
 import org.tcudjoe.eduplatformbackend.domain.schoolclass.SchoolClass;
 import org.tcudjoe.eduplatformbackend.domain.shared.BaseUser;
+import org.tcudjoe.eduplatformbackend.domain.shared.interfaces.SchoolScoped;
 import org.tcudjoe.eduplatformbackend.domain.subject.Subject;
+import org.tcudjoe.eduplatformbackend.domain.users.parent.Parent;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -18,7 +20,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @DiscriminatorValue("Student")
-public class Student extends BaseUser {
+public class Student extends BaseUser implements SchoolScoped {
 	@ManyToOne
 	@JoinColumn(name = "school_class_id")
 	private SchoolClass schoolClass;
@@ -33,4 +35,12 @@ public class Student extends BaseUser {
 	private long studentNumber;
 	private long gradeLevel;
 	private LocalDate enrollmentDate;
+	@ManyToOne
+	@JoinColumn(name = "school_id")
+	private School school;
+
+	@Override
+	public School getSchool() {
+		return this.school;
+	}
 }

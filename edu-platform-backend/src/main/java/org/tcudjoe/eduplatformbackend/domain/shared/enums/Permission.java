@@ -1,4 +1,4 @@
-package org.tcudjoe.eduplatformbackend.domain.shared;
+package org.tcudjoe.eduplatformbackend.domain.shared.enums;
 
 import lombok.Getter;
 
@@ -23,7 +23,7 @@ public enum Permission {
 
 	private final String permission;
 
-	Permission(String permission){
+	Permission(String permission) {
 		this.permission = permission;
 	}
 

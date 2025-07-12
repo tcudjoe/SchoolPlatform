@@ -1,4 +1,4 @@
-package org.tcudjoe.eduplatformbackend.domain.shared;
+package org.tcudjoe.eduplatformbackend.domain.shared.enums;
 
 public enum SubscriptionPlanEnum {
 	STARTER,

@@ -1,4 +1,4 @@
-package org.tcudjoe.eduplatformbackend.domain.superadmin;
+package org.tcudjoe.eduplatformbackend.domain.users.superadmin;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;

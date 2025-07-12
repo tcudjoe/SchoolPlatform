@@ -1,8 +1,7 @@
-package org.tcudjoe.eduplatformbackend.domain.shared;
+package org.tcudjoe.eduplatformbackend.domain.shared.enums;
 
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
-
 
 import java.util.Set;
 
@@ -55,12 +54,12 @@ public enum RoleEnum implements GrantedAuthority {
 
 	private final Set<Permission> permissions;
 
-	RoleEnum(Set<Permission> permissions){
+	RoleEnum(Set<Permission> permissions) {
 		this.permissions = permissions;
 	}
 
 	@Override
-	public String getAuthority(){
+	public String getAuthority() {
 		return "ROLE_" + this.name();
 	}
 }
