@@ -33,7 +33,7 @@ public enum RoleEnum implements GrantedAuthority {
 			Permission.PARENT_UPDATE,
 			Permission.PARENT_DELETE)
 	),
-	ADMIN(Set.of(
+	SCHEDULE_MAKER(Set.of(
 			Permission.STUDENT_READ,
 			Permission.STUDENT_WRITE,
 			Permission.STUDENT_UPDATE,
@@ -46,11 +46,60 @@ public enum RoleEnum implements GrantedAuthority {
 			Permission.PARENT_WRITE,
 			Permission.PARENT_UPDATE,
 			Permission.PARENT_DELETE,
-			Permission.ADMIN_READ,
-			Permission.ADMIN_WRITE,
-			Permission.ADMIN_UPDATE,
-			Permission.ADMIN_DELETE)
-	);
+			Permission.SCHEDULE_MAKER_READ,
+			Permission.SCHEDULE_MAKER_WRITE,
+			Permission.SCHEDULE_MAKER_UPDATE,
+			Permission.SCHEDULE_MAKER_DELETE,
+			Permission.SCHOOL_ADMIN_READ,
+			Permission.SCHOOL_ADMIN_WRITE,
+			Permission.SCHOOL_ADMIN_UPDATE,
+			Permission.SCHOOL_ADMIN_DELETE)
+	),
+	SCHOOL_ADMIN(Set.of(
+			Permission.STUDENT_READ,
+			Permission.STUDENT_WRITE,
+			Permission.STUDENT_UPDATE,
+			Permission.STUDENT_DELETE,
+			Permission.TEACHER_READ,
+			Permission.TEACHER_WRITE,
+			Permission.TEACHER_UPDATE,
+			Permission.TEACHER_DELETE,
+			Permission.PARENT_READ,
+			Permission.PARENT_WRITE,
+			Permission.PARENT_UPDATE,
+			Permission.PARENT_DELETE,
+			Permission.SCHOOL_ADMIN_READ,
+			Permission.SCHOOL_ADMIN_WRITE,
+			Permission.SCHOOL_ADMIN_UPDATE,
+			Permission.SCHOOL_ADMIN_DELETE)
+	),
+	SUPER_ADMIN(Set.of(
+			Permission.STUDENT_READ,
+			Permission.STUDENT_WRITE,
+			Permission.STUDENT_UPDATE,
+			Permission.STUDENT_DELETE,
+			Permission.TEACHER_READ,
+			Permission.TEACHER_WRITE,
+			Permission.TEACHER_UPDATE,
+			Permission.TEACHER_DELETE,
+			Permission.PARENT_READ,
+			Permission.PARENT_WRITE,
+			Permission.PARENT_UPDATE,
+			Permission.PARENT_DELETE,
+			Permission.SCHEDULE_MAKER_READ,
+			Permission.SCHEDULE_MAKER_WRITE,
+			Permission.SCHEDULE_MAKER_UPDATE,
+			Permission.SCHEDULE_MAKER_DELETE,
+			Permission.SCHOOL_ADMIN_READ,
+			Permission.SCHOOL_ADMIN_WRITE,
+			Permission.SCHOOL_ADMIN_UPDATE,
+			Permission.SCHOOL_ADMIN_DELETE,
+			Permission.SUPER_ADMIN_READ,
+			Permission.SUPER_ADMIN_WRITE,
+			Permission.SUPER_ADMIN_UPDATE,
+			Permission.SUPER_ADMIN_DELETE
+	));
+
 
 	private final Set<Permission> permissions;
 
