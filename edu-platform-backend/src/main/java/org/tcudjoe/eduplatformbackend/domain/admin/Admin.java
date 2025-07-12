@@ -11,6 +11,6 @@ import org.tcudjoe.eduplatformbackend.domain.shared.BaseEmployee;
 @Getter
 @Setter
 @NoArgsConstructor
-@DiscriminatorValue("Admin")
+@DiscriminatorValue("SchoolAdmin")
 public class Admin extends BaseEmployee {
 }
