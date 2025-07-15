@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.tcudjoe.eduplatformbackend.domain.homework.HomeworkSubmission;
 import org.tcudjoe.eduplatformbackend.domain.school.School;
 import org.tcudjoe.eduplatformbackend.domain.schoolclass.SchoolClass;
 import org.tcudjoe.eduplatformbackend.domain.shared.BaseUser;
@@ -38,6 +39,8 @@ public class Student extends BaseUser implements SchoolScoped {
 	@ManyToOne
 	@JoinColumn(name = "school_id")
 	private School school;
+	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+	private List<HomeworkSubmission> submissions;
 
 	@Override
 	public School getSchool() {

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.tcudjoe.eduplatformbackend.domain.homework.Homework;
 import org.tcudjoe.eduplatformbackend.domain.school.School;
 import org.tcudjoe.eduplatformbackend.domain.shared.BaseEmployee;
 import org.tcudjoe.eduplatformbackend.domain.shared.interfaces.SchoolScoped;
@@ -23,6 +24,8 @@ public class Teacher extends BaseEmployee implements SchoolScoped {
 	@ManyToOne
 	@JoinColumn(name = "school_id")
 	private School school;
+	@OneToMany(mappedBy = "assignedBy", cascade = CascadeType.ALL)
+	private List<Homework> assignedHomeworks;
 
 	@Override
 	public School getSchool() {
