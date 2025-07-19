@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @DiscriminatorValue("Parent")
 public class Parent extends BaseUser implements SchoolScoped {
-	@OneToMany(mappedBy = "parent")
+	@OneToMany(mappedBy = "parentContact", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Student> children;
 	@ManyToOne
 	@JoinColumn(name = "school_id")
