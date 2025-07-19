@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 import org.tcudjoe.eduplatformbackend.domain.school.School;
 import org.tcudjoe.eduplatformbackend.domain.schoolclass.SchoolClass;
 import org.tcudjoe.eduplatformbackend.domain.shared.interfaces.SchoolScoped;
@@ -12,6 +14,7 @@ import org.tcudjoe.eduplatformbackend.domain.users.schedulemaker.ScheduleMaker;
 import org.tcudjoe.eduplatformbackend.domain.users.teacher.Teacher;
 
 import java.time.DayOfWeek;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.UUID;
 
@@ -48,6 +51,10 @@ public class Schedule implements SchoolScoped {
 
 	private LocalTime startTime;
 	private LocalTime endTime;
+	@CreatedDate
+	private LocalDateTime createdAt;
+	@UpdateTimestamp
+	private LocalDateTime lastEditedAt;
 
 	private String location; // Optional: like a room number
 

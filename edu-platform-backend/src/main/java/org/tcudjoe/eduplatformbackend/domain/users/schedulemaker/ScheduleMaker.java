@@ -1,15 +1,15 @@
 package org.tcudjoe.eduplatformbackend.domain.users.schedulemaker;
 
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.tcudjoe.eduplatformbackend.domain.schedule.Schedule;
 import org.tcudjoe.eduplatformbackend.domain.school.School;
 import org.tcudjoe.eduplatformbackend.domain.shared.BaseEmployee;
 import org.tcudjoe.eduplatformbackend.domain.shared.interfaces.SchoolScoped;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,6 +20,9 @@ public class ScheduleMaker extends BaseEmployee implements SchoolScoped {
 	@ManyToOne
 	@JoinColumn(name = "school_id")
 	private School school;
+	@OneToMany(mappedBy = "createdBy", cascade = CascadeType.PERSIST)
+	private List<Schedule> createdSchedules;
+
 
 	@Override
 	public School getSchool() {
