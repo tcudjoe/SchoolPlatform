@@ -1,6 +1,8 @@
 package org.tcudjoe.eduplatformbackend.domain.school;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,10 +17,12 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name = "school")
 public class School {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
+	@NotBlank
 	private String name;
 	private String shortName;
 	private String schoolCode;
@@ -26,6 +30,7 @@ public class School {
 	private String city;
 	private String postalCode;
 	private String country;
+	@Email
 	private String email;
 	private String phonenumber;
 	private String principalName;

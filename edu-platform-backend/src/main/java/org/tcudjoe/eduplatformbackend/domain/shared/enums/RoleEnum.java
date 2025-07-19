@@ -3,6 +3,7 @@ package org.tcudjoe.eduplatformbackend.domain.shared.enums;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -107,8 +108,20 @@ public enum RoleEnum implements GrantedAuthority {
 		this.permissions = permissions;
 	}
 
+	public Set<GrantedAuthority> getGrantedAuthorities() {
+		Set<GrantedAuthority> authorities = new HashSet<>();
+		authorities.add(this); // Add role as authority (ROLE_XYZ)
+		permissions.forEach(permission -> authorities.add(() -> permission.getPermission()));
+		return authorities;
+	}
+
 	@Override
 	public String getAuthority() {
 		return "ROLE_" + this.name();
+	}
+
+	@Override
+	public String toString() {
+		return "RoleEnum{" + name() + ", permissions=" + permissions + "}";
 	}
 }

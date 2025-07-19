@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.tcudjoe.eduplatformbackend.domain.schoolclass.SchoolClass;
+import org.tcudjoe.eduplatformbackend.domain.classroom.ClassRoom;
 import org.tcudjoe.eduplatformbackend.domain.subject.Subject;
 import org.tcudjoe.eduplatformbackend.domain.users.student.Student;
 import org.tcudjoe.eduplatformbackend.domain.users.teacher.Teacher;
@@ -47,7 +47,7 @@ public class Homework {
 	@ManyToOne
 	private Subject subject;
 	@ManyToOne
-	private SchoolClass schoolClass;
+	private ClassRoom classRoom;
 	@CreatedDate
 	private LocalDate createdAt;
 	@LastModifiedDate

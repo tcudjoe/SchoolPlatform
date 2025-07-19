@@ -4,9 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.tcudjoe.eduplatformbackend.domain.classroom.ClassRoom;
 import org.tcudjoe.eduplatformbackend.domain.homework.HomeworkSubmission;
 import org.tcudjoe.eduplatformbackend.domain.school.School;
-import org.tcudjoe.eduplatformbackend.domain.schoolclass.SchoolClass;
 import org.tcudjoe.eduplatformbackend.domain.shared.BaseUser;
 import org.tcudjoe.eduplatformbackend.domain.shared.interfaces.SchoolScoped;
 import org.tcudjoe.eduplatformbackend.domain.subject.Subject;
@@ -23,7 +23,7 @@ import java.util.List;
 public class Student extends BaseUser implements SchoolScoped {
 	@ManyToOne
 	@JoinColumn(name = "school_class_id")
-	private SchoolClass schoolClass;
+	private ClassRoom classRoom;
 	@ManyToMany
 	@JoinTable(
 			name = "student_subject",

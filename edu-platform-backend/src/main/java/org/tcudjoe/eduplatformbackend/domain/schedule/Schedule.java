@@ -6,8 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
+import org.tcudjoe.eduplatformbackend.domain.classroom.ClassRoom;
 import org.tcudjoe.eduplatformbackend.domain.school.School;
-import org.tcudjoe.eduplatformbackend.domain.schoolclass.SchoolClass;
 import org.tcudjoe.eduplatformbackend.domain.shared.interfaces.SchoolScoped;
 import org.tcudjoe.eduplatformbackend.domain.subject.Subject;
 import org.tcudjoe.eduplatformbackend.domain.users.schedulemaker.ScheduleMaker;
@@ -37,7 +37,7 @@ public class Schedule implements SchoolScoped {
 
 	@ManyToOne
 	@JoinColumn(name = "school_class_id")
-	private SchoolClass schoolClass;
+	private ClassRoom classRoom;
 
 	@ManyToOne
 	@JoinColumn(name = "school_id")
