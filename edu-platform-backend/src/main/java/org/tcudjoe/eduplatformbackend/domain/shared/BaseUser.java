@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.tcudjoe.eduplatformbackend.domain.shared.enums.RoleEnum;
@@ -21,6 +23,8 @@ import java.util.UUID;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "user_type", discriminatorType = DiscriminatorType.STRING)
 @Table(name = "user")
+@EntityListeners(AuditingEntityListener.class)
+@EnableJpaAuditing
 public class BaseUser implements UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
@@ -67,5 +71,9 @@ public class BaseUser implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return UserDetails.super.isEnabled();
+	}
+
+	public String getFullName() {
+		return firstname + " " + lastname;
 	}
 }

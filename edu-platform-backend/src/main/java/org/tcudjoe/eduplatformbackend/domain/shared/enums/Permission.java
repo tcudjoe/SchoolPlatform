@@ -35,5 +35,9 @@ public enum Permission {
 		this.permission = permission;
 	}
 
+	@Override
+	public String toString() {
+		return permission;
+	}
 
 }
