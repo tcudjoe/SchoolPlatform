@@ -19,12 +19,16 @@ import java.util.List;
 @DiscriminatorValue("Teacher")
 public class Teacher extends BaseEmployee implements SchoolScoped {
 	@ManyToMany
-	@JoinColumn(name = "teacher_id")
+	@JoinTable(
+			name = "teacher_subject",
+			joinColumns = @JoinColumn(name = "teacher_id"),
+			inverseJoinColumns = @JoinColumn(name = "subject_id")
+	)
 	private List<Subject> subjects;
 	@ManyToOne
 	@JoinColumn(name = "school_id")
 	private School school;
-	@OneToMany(mappedBy = "assignedBy", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "assignedBy", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Homework> assignedHomeworks;
 
 	@Override
