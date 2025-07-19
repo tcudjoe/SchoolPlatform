@@ -13,7 +13,6 @@ import org.tcudjoe.eduplatformbackend.domain.subject.Subject;
 import org.tcudjoe.eduplatformbackend.domain.users.parent.Parent;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -26,15 +25,19 @@ public class Student extends BaseUser implements SchoolScoped {
 	@JoinColumn(name = "school_class_id")
 	private SchoolClass schoolClass;
 	@ManyToMany
-	@JoinColumn(name = "student_id")
+	@JoinTable(
+			name = "student_subject",
+			joinColumns = @JoinColumn(name = "student_id"),
+			inverseJoinColumns = @JoinColumn(name = "subject_id")
+	)
 	private List<Subject> subjects;
-	private LocalDateTime dateOfBirth;
+	private LocalDate dateOfBirth;
 	private String address;
 	@ManyToOne
 	@JoinColumn(name = "parent_contact_id")
 	private Parent parentContact;
 	private long studentNumber;
-	private long gradeLevel;
+	private Integer gradeLevel;
 	private LocalDate enrollmentDate;
 	@ManyToOne
 	@JoinColumn(name = "school_id")
@@ -46,4 +49,9 @@ public class Student extends BaseUser implements SchoolScoped {
 	public School getSchool() {
 		return this.school;
 	}
+
+	public boolean isEnrolled() {
+		return enrollmentDate != null;
+	}
+
 }
